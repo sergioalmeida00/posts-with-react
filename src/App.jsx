@@ -38,7 +38,7 @@ const posts = [
 function App() {
   
   return (
-    <div>
+    <div>      
       <Header/>
       <div className={styles.wrapper}>
         <SideBar/>
