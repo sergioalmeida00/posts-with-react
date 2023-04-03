@@ -13,7 +13,7 @@ export function Comment({content, onDeleteComment}){
   }
 
   function handleLikeComment(){
-    setLikeCount(likeCount + 1)
+    setLikeCount((prevState) => (prevState + 1))
   }
 
   function handleShowModal(value){
@@ -22,9 +22,17 @@ export function Comment({content, onDeleteComment}){
 
   return(
     <>
-
       {
-        showModal && (<Modal onShowModal={handleShowModal} onDelete={handleDeleteComment}/>)
+        showModal && (
+        <Modal onShowModal={handleShowModal} onDelete={handleDeleteComment}>
+          <>
+            <header>
+              <h3>Excluir Comentário</h3>
+            </header>
+            <p>Você tem certeza que gostaria de excluir este comentário?</p>
+          </>  
+        </Modal>
+        )
       }
       
        <div className={styles.comment}>
